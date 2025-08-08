@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Ideias para Devs</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💻 Gerador de Ideias para Programadores</h1>
+
+    <label for="area">Área:</label>
+    <select id="area">
+      <option value="frontend">Front-End</option>
+      <option value="backend">Back-End</option>
+      <option value="fullstack">Full Stack</option>
+    </select>
+
+    <label for="nivel">Nível:</label>
+    <select id="nivel">
+      <option value="junior">Júnior</option>
+      <option value="pleno">Pleno</option>
+      <option value="senior">Sênior</option>
+    </select>
+
+    <button onclick="gerarIdeia()">Gerar Ideia</button>
+    <p id="ideia">Escolha uma área e um nível para começar!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

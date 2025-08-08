@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Ideias para Devs</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Fundo animado -->
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="container">
+    <h1><i class="fas fa-lightbulb"></i> Gerador de Ideias para Programadores</h1>
+
+    <label for="area">Área:</label>
+    <select id="area">
+      <option value="frontend">Front-End</option>
+      <option value="backend">Back-End</option>
+      <option value="fullstack">Full Stack</option>
+    </select>
+
+    <label for="nivel">Nível:</label>
+    <select id="nivel">
+      <option value="junior">Júnior</option>
+      <option value="pleno">Pleno</option>
+      <option value="senior">Sênior</option>
+    </select>
+
+    <button onclick="gerarIdeia()">Gerar Ideia</button>
+    <p id="ideia">Escolha uma área e um nível para começar!</p>
+  </div>
+
+  <!-- Script do gerador -->
+  <script src="script.js"></script>
+
+  <!-- Script do fundo animado -->
+  <script>
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#00ffcc';
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
