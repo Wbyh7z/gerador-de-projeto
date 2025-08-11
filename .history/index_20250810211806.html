@@ -74,7 +74,8 @@
 
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;     
+      canvas.height = window.innerHeight;
+      // Reposiciona as partículas para não sumirem
       particles.forEach(p => {
         p.x = Math.random() * canvas.width;
         p.y = Math.random() * canvas.height;

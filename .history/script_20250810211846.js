@@ -996,7 +996,7 @@ const ideias = {
   },
 };
 
-
+// Mapeamento de ícones por área
 const icones = {
   frontend: "fa-paint-brush",
   backend: "fa-server",
